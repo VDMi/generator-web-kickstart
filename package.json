@@ -4,11 +4,11 @@
 	"description": "Website kickstarter using Assemble, Compass + Sprites Autogenerating and Bower (Normalize and jQuery)",
 	"license": "MIT",
 	"main": "app/index.js",
-	"repository": "rbadillap/generator-web-kickstart",
+	"repository": "VDMi/generator-web-kickstart",
 	"author": {
-		"name": "Ronny Badilla",
-		"email": "rbadillap@gmail.com",
-		"url": "https://github.com/rbadillap"
+		"name": "Jeroen Bobbeldijk",
+		"email": "jeroen@vdmi.nl",
+		"url": "https://github.com/jerbob92"
 	},
 	"homepage": "https://github.com/rbadillap/generator-web-kickstart",
 	"engines": {

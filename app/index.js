@@ -21,11 +21,17 @@ var WebKickstartGenerator = yeoman.generators.Base.extend({
       name: 'appName',
       message: 'Would you mind telling me your project base name?',
       default: 'my-project'
-    }];
+    },
+    {
+      name: 'Modernizr',
+      value: 'includeModernizr',
+      checked: false
+    }
+    ];
 
     this.prompt(prompts, function (props) {
       this.appName = props.appName;
-
+      this.includeModernizr = hasFeature('includeModernizr');
       done();
     }.bind(this));
   },
@@ -65,22 +71,12 @@ var WebKickstartGenerator = yeoman.generators.Base.extend({
       this.dest.mkdir('app/theme/pages');
       this.dest.mkdir('app/theme/partials');
 
-      // Files
-      // Images
-      this.src.copy('app/images/logo.png', 'app/images/logo.png');
-      this.src.copy('app/images/sprites/button.png', 'app/images/sprites/button.png');
-      this.src.copy('app/images/sprites/button_hover.png', 'app/images/sprites/button_hover.png');
-
       // JS
       this.template('app/js/main.js', 'app/js/main.js');
 
       // Sass
       this.template('app/scss/main.scss', 'app/scss/main.scss');
       this.template('app/scss/_utils/_sprites.scss', 'app/scss/_utils/_sprites.scss');
-
-      // Assemble
-      this.template('app/theme/common/form.hbs', 'app/theme/common/form.hbs');
-      this.template('app/theme/common/video.hbs', 'app/theme/common/video.hbs');
 
       this.template('app/theme/layouts/common.hbs', 'app/theme/layouts/common.hbs');
       this.template('app/theme/layouts/default.hbs', 'app/theme/layouts/default.hbs');
@@ -93,7 +89,19 @@ var WebKickstartGenerator = yeoman.generators.Base.extend({
     },
 
   },
+  bower: function () {
+    var bower = {
+      name: this._.slugify(this.appname),
+      private: true,
+      dependencies: {}
+    };
 
+    if (this.includeModernizr) {
+      bower.dependencies.modernizr = "~2.8.3";
+    }
+
+    this.write('bower.json', JSON.stringify(bower, null, 2));
+  },
   end: function () {
     this.installDependencies();
   }
