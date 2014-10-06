@@ -21,17 +21,10 @@ var WebKickstartGenerator = yeoman.generators.Base.extend({
       name: 'appName',
       message: 'Would you mind telling me your project base name?',
       default: 'my-project'
-    },
-    {
-      name: 'Modernizr',
-      value: 'includeModernizr',
-      checked: false
-    }
-    ];
+    }];
 
     this.prompt(prompts, function (props) {
       this.appName = props.appName;
-      this.includeModernizr = hasFeature('includeModernizr');
       done();
     }.bind(this));
   },
@@ -88,19 +81,6 @@ var WebKickstartGenerator = yeoman.generators.Base.extend({
       this.template('app/theme/partials/footer.hbs', 'app/theme/partials/footer.hbs');
     },
 
-  },
-  bower: function () {
-    var bower = {
-      name: this._.slugify(this.appname),
-      private: true,
-      dependencies: {}
-    };
-
-    if (this.includeModernizr) {
-      bower.dependencies.modernizr = "~2.8.3";
-    }
-
-    this.write('bower.json', JSON.stringify(bower, null, 2));
   },
   end: function () {
     this.installDependencies();

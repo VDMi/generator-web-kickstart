@@ -213,6 +213,7 @@ module.exports = function (grunt) {
                     destPrefix: '<%= config.app %>/js'
                 },
                 files: {
+                    'modernizr.js': 'modernizr.js/modernizr/modernizr.js',
                     'jquery.min.js': 'jquery-1.x/dist/jquery.min.js'
                 }
             },
@@ -282,7 +283,6 @@ module.exports = function (grunt) {
                 src: '{,*/}*.js'
             } 
         },
-
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
