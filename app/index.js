@@ -59,7 +59,6 @@ var WebKickstartGenerator = yeoman.generators.Base.extend({
       this.dest.mkdir('app/scss/_utils');
       // Assemble
       this.dest.mkdir('app/theme');
-      this.dest.mkdir('app/theme/common');
       this.dest.mkdir('app/theme/layouts');
       this.dest.mkdir('app/theme/pages');
       this.dest.mkdir('app/theme/partials');
@@ -71,7 +70,6 @@ var WebKickstartGenerator = yeoman.generators.Base.extend({
       this.template('app/scss/main.scss', 'app/scss/main.scss');
       this.template('app/scss/_utils/_sprites.scss', 'app/scss/_utils/_sprites.scss');
 
-      this.template('app/theme/layouts/common.hbs', 'app/theme/layouts/common.hbs');
       this.template('app/theme/layouts/default.hbs', 'app/theme/layouts/default.hbs');
 
       this.template('app/theme/pages/index.hbs', 'app/theme/pages/index.hbs');
