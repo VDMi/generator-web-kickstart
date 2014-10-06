@@ -213,7 +213,7 @@ module.exports = function (grunt) {
                     destPrefix: '<%= config.app %>/js'
                 },
                 files: {
-                    'modernizr.js': 'modernizr.js/modernizr/modernizr.js',
+                    'modernizr.js': 'modernizr/modernizr.js',
                     'jquery.min.js': 'jquery-1.x/dist/jquery.min.js'
                 }
             },
