@@ -18,11 +18,12 @@
 
 - Normalize.css (~3.0.1)
 - jQuery (1.11.0)
+- Modernizr (~2.8.2)
 
 To install generator-web-kickstart from npm, run:
 
 ```
-npm install -g generator-web-kickstart
+sudo npm install -g VDMi/generator-web-kickstart.git
 ```
 
 Finally, initiate the generator:
