@@ -79,13 +79,7 @@ module.exports = function (grunt) {
                 files: {
                     '.tmp/': ['<%= config.app %>/theme/pages/index.hbs']
                 }
-            },
-            common: {
-                options: {layout: 'common.hbs' },
-                files: {
-                    '.tmp/common/': ['<%= config.app %>/theme/common/*.hbs']
-                }
-            }            
+            }
         },
 
         compass: {
